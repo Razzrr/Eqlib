@@ -554,8 +554,11 @@ public:
 /*0x0488*/ uint8_t                  TitleVisible;
 /*0x048c*/ unsigned int             HibernatingCount;
 /*0x0490*/ float                    MissileRangeToTarget;
-/*0x0494*/ bool                     Mercenary;
-/*0x0498*/ int                      Unknown1;
+/*0x0494*/ int                      Unknown1;
+/*0x0498*/ bool                     Unknown0x0498;
+/*0x0499*/ uint8_t                  Unknown0x0499;
+/*0x049a*/ uint8_t                  Unknown0x049A;
+/*0x049b*/ uint8_t                  Unknown0x049B;
 /*0x049c*/ bool                     bAlwaysShowAura;
 /*0x04a0*/ unsigned int             CorpseDragCount;
 /*0x04a4*/ EqItemGuid               realEstateItemGuid;
@@ -593,7 +596,10 @@ public:
 /*0x05d1*/ bool                     PvPFlag;              // MTF: OLD 0x0598->NEW 0x05D1
 /*0x05d2*/ uint8_t                  AltAttack;            // MTF: SIZE_CHANGED int->byte
 /*0x05d4*/ unsigned int             LastPrimaryUseTime;
-/*0x05d8*/ int                      RealEstateID;         // MTF: SIZE_CHANGED dword->byte
+/*0x05d8*/ bool                     Mercenary;
+/*0x05d9*/ uint8_t                  Unknown0x05D9;
+/*0x05da*/ uint8_t                  Unknown0x05DA;
+/*0x05db*/ uint8_t                  Unknown0x05DB;
 /*0x05dc*/ unsigned int             NextSwim;
 /*0x05e0*/ unsigned int             SpellGemETA[15];      // 1-based: gems at [1]-[12]
 /*0x061c*/ float                    ViewHeight;
