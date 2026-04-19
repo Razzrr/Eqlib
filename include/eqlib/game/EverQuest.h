@@ -50,7 +50,7 @@ enum EPlace
 	CanPlaceAndGoto,
 };
 
-constexpr size_t zoneHeader_size = 0x2A4; // @sizeof(zoneHeader) :: 2026-03-10 (live) @ 0x140E95CD4
+constexpr size_t zoneHeader_size = 0x2A4; // @sizeof(zoneHeader) :: 2026-04-15 (live) @ 0x140eb17b4
 
 struct [[offsetcomments]] zoneHeader
 {
@@ -314,7 +314,7 @@ struct [[offsetcomments]] EQGameOptions
 
 
 // size of EverQuestinfo is the distance from this byte to the end of the struct
-constexpr size_t EverQuestinfo_size = 0x75278; // @sizeof(EverQuestinfo) :: 2026-03-10 (live) @ 0x140E95AE0
+constexpr size_t EverQuestinfo_size = 0x75278; // @sizeof(EverQuestinfo) :: 2026-04-15 (live) @ 0x140eb15c0
 
 struct [[offsetcomments]] EverQuestinfo
 {
@@ -716,7 +716,7 @@ public:
 };
 
 
-constexpr size_t CEverQuest_size = 0x19708; // @sizeof(CEverQuest) :: 2026-03-10 (live) @ 0x14034FED3
+constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-04-15 (live) @ 0x140351323
 
 class [[offsetcomments]] CEverQuest : public CEverQuestBase, public UniversalChatProxyHandler, public PopDialogHandler
 {
@@ -962,7 +962,8 @@ public:
 /*0x18eb8*/ int                   Blue;
 /*0x18ec0*/ ArrayClass<CharSelectInfo> charSelectPlayerArray;
 /*0x18ed8*/ char                  Filler[0x830]; // more data
-/*0x19708*/
+/*0x19708*/ uint8_t               Unknown0x19708[8];
+/*0x19710*/
 
 	ALT_MEMBER_GETTER(UniversalChatProxy*, chatService, ChatService);
 };
