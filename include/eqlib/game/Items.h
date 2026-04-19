@@ -1215,7 +1215,7 @@ public:
 	// Convertible Item and Collection fields
 	bool IsCollected() const { return bCollected; }
 	bool IsConvertible() const { return bConvertable; }
-	int GetConvertItemID() const { return ConvertItemID; }
+	int GetConvertItemID() const { return ItemDef->ConvertItemID; }
 	CXStr GetConvertItemName() const { return ConvertItemName; }
 
 	// Luck Accessors
