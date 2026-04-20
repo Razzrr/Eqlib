@@ -293,7 +293,7 @@ namespace eqlib
 	public:
 	};
 
-struct [[offsetcomments]] PZCPhysicsInfo
+	struct [[offsetcomments]] PZCPhysicsInfo
     {
         // @start: PZCPhysicsInfo Members
         /*0x00*/ unsigned int ZHeading : 12;
