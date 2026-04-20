@@ -308,16 +308,16 @@ public:
 struct [[offsetcomments]] PZCPhysicsInfo
 {
 // @start: PZCPhysicsInfo Members
-/*0x00*/ unsigned int ZHeading : 12;
-/*0x04*/ float DeltaX;
-/*0x08*/ float Z;
-/*0x0c*/ float Y;
-/*0x10*/ float DeltaZ;
-/*0x14*/ unsigned int Acceleration : 10;
-/*0x14*/ unsigned int Heading : 12;
-/*0x18*/ float DeltaY;
-/*0x1c*/ unsigned int DeltaHeading : 10;
-/*0x20*/ float X;
+/*0x10*/ unsigned int ZHeading : 12;
+/*0x18*/ float DeltaX;
+/*0x1c*/ float Z;
+/*0x04*/ float Y;
+/*0x14*/ float DeltaZ;
+/*0x20*/ unsigned int Acceleration : 10;
+/*0x20*/ unsigned int Heading : 12;
+/*0x24*/ float DeltaY;
+/*0x08*/ unsigned int DeltaHeading : 10;
+/*0x0c*/ float X;
 /*0x24*/
 // @end: PZCPhysicsInfo Members
 };
@@ -553,19 +553,19 @@ public:
 /*0x0480*/ unsigned int             LastResendAddPlayerPacket;
 /*0x0484*/ int                      NpcTintIndex;
 /*0x0488*/ uint8_t                  TitleVisible;
-/*0x048c*/ bool                     bOfflineMode;
-/*0x0490*/ float                    MissileRangeToTarget;
-/*0x0494*/ int                      Unknown0x0494;
-/*0x0498*/ bool                     Unknown0x0498;
-/*0x0499*/ uint8_t                  Unknown0x0499;
-/*0x049a*/ uint8_t                  Unknown0x049A;
-/*0x049b*/ uint8_t                  Unknown0x049B;
-/*0x049c*/ bool                     bAlwaysShowAura;
-/*0x04a0*/ unsigned int             CorpseDragCount;
-/*0x04a4*/ EqItemGuid               realEstateItemGuid;
-/*0x04b6*/ char                     DraggingPlayer[0x40];
-/*0x04f8*/ int                      SecondaryTintIndex;
-/*0x04fc*/ LaunchSpellData          CastingData;
+/*0x0489*/ bool                     bOfflineMode;
+/*0x048c*/ float                    MissileRangeToTarget;
+/*0x0490*/ int                      Unknown0x0494;
+/*0x0494*/ bool                     Unknown0x0498;
+/*0x0495*/ uint8_t                  Unknown0x0499;
+/*0x0496*/ uint8_t                  Unknown0x049A;
+/*0x0497*/ uint8_t                  Unknown0x049B;
+/*0x0498*/ bool                     bAlwaysShowAura;
+/*0x049c*/ unsigned int             CorpseDragCount;
+/*0x04a0*/ EqItemGuid               realEstateItemGuid;
+/*0x04b2*/ char                     DraggingPlayer[0x40];
+/*0x04f4*/ int                      SecondaryTintIndex;
+/*0x04f8*/ LaunchSpellData          CastingData;
 /*0x0540*/ unsigned int**           ppUDP;
 /*0x0548*/ int64_t                  HPCurrent;
 /*0x0550*/ bool                     bBuffTimersOnHold;
