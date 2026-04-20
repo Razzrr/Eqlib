@@ -518,7 +518,7 @@ public:
 /*0x03c8*/ float                    RunSpeed;
 /*0x03cc*/ unsigned int             LastSecondaryUseTime;
 /*0x03d0*/ bool                     bAnimationOnPop;
-/*0x03d1*/ uint8_t                  GMRank;               // MTF: OLD 0x0368->NEW 0x03D1
+/*0x03d1*/ uint8_t                  GMRank;
 /*0x03d8*/ PlayerClient*            pViewPlayer;
 /*0x03e0*/ unsigned int             MinuteTimer;
 /*0x03e4*/ int                      ManaCurrent;
