@@ -505,7 +505,7 @@ public:
 /*0x02f0*/ uint8_t                  HoldingAnimation;
 /*0x02f1*/ char                     GM;
 /*0x02f2*/ char                     Suffix[0x80];
-/*0x0374*/ int                      Unknown4;
+/*0x0374*/ int                      Unknown0x0374;
 /*0x0378*/ int                      HideMode;
 /*0x037c*/ uint8_t                  Light;
 /*0x0380*/ CPhysicsInfo             LastCollision;
@@ -525,14 +525,15 @@ public:
 /*0x03e8*/ uint8_t                  FishingEvent;
 /*0x03ec*/ int                      Birthdate;
 /*0x03f0*/ unsigned int             LastRangedUsedTime;
-/*0x03f4*/ int                      Trader;
-/*0x03f8*/ int                      Unknown3;
+/*0x03f4*/ int                      Unknown0x03f4;
+/*0x03f8*/ int                      Unknown0x03f8;
 /*0x03fc*/ float                    BearingToTarget;
 /*0x0400*/ unsigned int             LastTick;
 /*0x0404*/ int                      WarCry;
 /*0x0408*/ int                      Deity;
 /*0x0410*/ int64_t                  GuildID;
-/*0x0418*/ int                      SomeData[2];
+/*0x0418*/ int                      Unknown0x0418;
+/*0x041c*/ int                      Unknown0x041c;
 /*0x0420*/ char                     Handle[0x20];
 /*0x0440*/ bool                     bShowHelm;
 /*0x0444*/ int                      PrimaryTintIndex;
@@ -552,9 +553,9 @@ public:
 /*0x0480*/ unsigned int             LastResendAddPlayerPacket;
 /*0x0484*/ int                      NpcTintIndex;
 /*0x0488*/ uint8_t                  TitleVisible;
-/*0x048c*/ unsigned int             HibernatingCount;
+/*0x048c*/ bool                     bOfflineMode;
 /*0x0490*/ float                    MissileRangeToTarget;
-/*0x0494*/ int                      Unknown1;
+/*0x0494*/ int                      Unknown0x0494;
 /*0x0498*/ bool                     Unknown0x0498;
 /*0x0499*/ uint8_t                  Unknown0x0499;
 /*0x049a*/ uint8_t                  Unknown0x049A;
@@ -569,7 +570,7 @@ public:
 /*0x0548*/ int64_t                  HPCurrent;
 /*0x0550*/ bool                     bBuffTimersOnHold;
 /*0x0551*/ char                     LoginRelated[0x20];
-/*0x0574*/ int                      Buyer;
+/*0x0574*/ int                      Trader;
 /*0x0578*/ int                      ManaMax;
 /*0x057c*/ unsigned int             LoginSerial;
 /*0x0580*/ uint8_t                  StandState;
@@ -583,7 +584,7 @@ public:
 /*0x0598*/ unsigned int             RespawnTimer;
 /*0x05a0*/ CharacterZoneClient*     pCharacter;
 /*0x05a8*/ int                      DoSpecialMelee;
-/*0x05ac*/ int                      unk0x5ac;  // used to be bool bAttackRelated, but it's not a bool. also not used by anything
+/*0x05ac*/ unsigned int             HibernatingCount;
 /*0x05b0*/ bool                     LFG;
 /*0x05b1*/ bool                     bSwitchMoved;  // wrong, but not used anywhere in the codebase
 /*0x05b4*/ unsigned int             SpellCooldownETA;
@@ -605,8 +606,7 @@ public:
 /*0x061c*/ float                    ViewHeight;
 /*0x0620*/ void*                    pTouchingSwitch;
 /*0x0628*/ unsigned int             TimeStamp;
-/*0x062c*/ bool                     bOfflineMode;
-/*0x062d*/ uint8_t                  UnknownPad0x062D[3]; // MSVC randomization padding
+/*0x062c*/ int                      Buyer;
 /*0x0630*/ uint8_t                  LastAttack;
 /*0x0631*/ uint8_t                  IntimidateCount;
 /*0x0632*/ uint8_t                  IsPassenger;
