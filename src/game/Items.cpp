@@ -301,12 +301,11 @@ ItemBase::ItemBase()
 {
 	ScriptIndex = 0;
 	bCollected = false;
-	bRankDisabled = false;
 	bDisableAugTexture = false;
 	Luck = 0;
 	ID = 0;
-	MerchantSlot = 0;
-	ConvertItemID = 0;
+	SharedItemDefPtr = nullptr;
+	SharedItemDefCtrl = nullptr;
 	DontKnow = 0;
 	NoDropFlag = 0;
 	LastCastTime = 0;
@@ -315,13 +314,11 @@ ItemBase::ItemBase()
 	StackCount = 1;
 	OrnamentationIcon = 0;
 	MerchantQuantity = 1;
-	bItemNeedsUpdate = false;
+	MerchantSlot = 0;
 	Price = 0;
 	Open = 0;
 	NoteStatus = 0;
 	bConvertable = false;
-	Tint = 0;
-	ArmorType = 0;
 	AugFlag = 0;
 	NewArmorID = 0;
 	RealEstateID = -1;
@@ -377,7 +374,7 @@ DESTRUCTOR_AT_ADDRESS(ItemClient::~ItemClient, ItemClient__dItemClient);
 
 ItemDefinition* ItemClient::GetItemDefinition() const
 {
-	return ItemDef ? ItemDef : SharedItemDef.get();
+	return ItemDef ? ItemDef : SharedItemDefPtr;
 }
 
 //----------------------------------------------------------------------------
