@@ -803,7 +803,7 @@ public:
 	}
 };
 
-constexpr size_t ItemDefinition_size = 0x640; // @sizeof(ItemDefinition) :: 2026-03-10 (live) @ 0x140222F24
+constexpr size_t ItemDefinition_size = 0x68c; // @sizeof(ItemDefinition) :: 2026-04-15 (live) @ 0x1402239f4
 
 class [[offsetcomments]] ItemDefinition
 {
@@ -963,8 +963,10 @@ public:
 /*0x610*/ float               PlaceableDefRoll;
 /*0x614*/ bool                bInteractiveObject;
 /*0x615*/ uint8_t             SocketSubClassCount;
-/*0x618*/ int                 SocketSubClass[10];
-/*0x640*/
+/*0x618*/ int                 ConvertItemID;
+/*0x61c*/ int                 SocketSubClass[10];
+/*0x644*/ uint8_t             Unknown0x644[0x48]; // Apr 2026: new 72-byte sub-object (sync handle)
+/*0x68c*/
 
 	EQLIB_OBJECT ItemDefinition();
 
@@ -1071,45 +1073,52 @@ class [[offsetcomments]] ItemBase : public IChildItemContainer
 {
 public:
 // @start: ItemBase Members
-/*0x008*/ bool                  bCopied;
-/*0x00c*/ int                   Luck;
-/*0x010*/ int                   ActorTag2;
-/*0x018*/ ItemContainer         Contents;
-/*0x040*/ int                   NoteStatus;
-/*0x044*/ EqItemGuid            ItemGUID;
-/*0x058*/ int64_t               Price;
+// Apr 14 2026 live — major field shuffle. Confirmed positions marked [C].
+/*0x008*/ bool                  bCopied;                 // [C]
+/*0x009*/ EqItemGuid            ItemGUID;                // [C] moved from 0x044
+/*0x01c*/ int                   Luck;
+/*0x020*/ int64_t               Price;
+/*0x028*/ int                   NoteStatus;
+/*0x02c*/ int                   RealEstateID;            // [C]
+/*0x030*/ int                   ID;
+/*0x034*/ bool                  bCollected;
+/*0x035*/ uint8_t               Unknown_0x035[3];
+/*0x038*/ SoeUtil::String       SaveString;              // [C] moved from 0x080
+/*0x050*/ int                   Power;                       // Binary match: SetPower clamps [0,MaxPower], writes [this+0x050]
+/*0x054*/ int                   Charges;                     // Binary match: clamp-to-100 + MaxCharges check at ItemDef+0x22C
+/*0x058*/ int                   StackCount;              // [C] moved from 0x0bc
+/*0x05c*/ int                   MerchantQuantity;        // [C] moved from 0x10c
 /*0x060*/ bool                  bConvertable;
-/*0x064*/ int                   OrnamentationIcon;
-/*0x068*/ ItemDefinition*       ItemDef;
-/*0x070*/ unsigned int          ItemHash;
-/*0x074*/ bool                  bCollected;
-/*0x078*/ int                   ScriptIndex;
-/*0x080*/ SoeUtil::String       SaveString;
-/*0x098*/ int                   AugFlag;
-/*0x09c*/ unsigned int          NewArmorID;
-/*0x0a0*/ unsigned int          RespawnTime;
-/*0x0a4*/ int                   ActorTag1;
-/*0x0a8*/ bool                  bDisableAugTexture;
-/*0x0ac*/ int                   ConvertItemID;
-/*0x0b0*/ int                   Charges;
-/*0x0b4*/ int                   ID;
-/*0x0b8*/ bool                  bRankDisabled;
-/*0x0bc*/ int                   StackCount;
-/*0x0c0*/ bool                  bItemNeedsUpdate;
-/*0x0c4*/ unsigned int          LastCastTime;
-/*0x0c8*/ int                   RealEstateID;
-/*0x0d0*/ int64_t               DontKnow;
-/*0x0d8*/ int                   Open;
-/*0x0dc*/ int                   Power;
-/*0x0e0*/ ItemEvolutionDataPtr  pEvolutionData;
-/*0x0f0*/ unsigned int          Tint;
-/*0x0f4*/ int                   ArmorType;
-/*0x0f8*/ CXStr                 ConvertItemName;
-/*0x100*/ ItemGlobalIndex       GlobalIndex;
-/*0x10c*/ int                   MerchantQuantity;
-/*0x110*/ int64_t               MerchantSlot;
-/*0x118*/ int                   NoDropFlag;
-/*0x11c*/
+/*0x061*/ uint8_t               Unknown_0x061[3];
+/*0x064*/ unsigned int          ItemHash;
+/*0x068*/ int64_t               MerchantSlot;            // moved from 0x110
+/*0x070*/ int64_t               DontKnow;
+/*0x078*/ CXStr                 ConvertItemName;         // moved from 0x0f8
+/*0x080*/ ItemContainer         Contents;                // [C] moved from 0x018
+/*0x0a8*/ int                   ScriptIndex;
+/*0x0ac*/ uint8_t               Unknown_0x0ac[4];
+/*0x0b0*/ ItemDefinition*       ItemDef;                 // [C] raw override ptr
+/*0x0b8*/ ItemGlobalIndex       GlobalIndex;             // [C] moved from 0x100
+/*0x0c4*/ uint8_t               Unknown_0x0c4[4];
+/*0x0c8*/ ItemEvolutionDataPtr  pEvolutionData;          // [C] moved from 0x0e0
+/*0x0d8*/ int                   AugFlag;                 // moved from 0x098
+/*0x0dc*/ unsigned int          NewArmorID;
+/*0x0e0*/ unsigned int          RespawnTime;
+/*0x0e4*/ bool                  bDisableAugTexture;
+/*0x0e5*/ uint8_t               Unknown_0x0e5[3];
+/*0x0e8*/ int                   Open;
+/*0x0ec*/ int                   NoDropFlag;
+/*0x0f0*/ int                   Unknown_0x0f0;
+/*0x0f4*/ uint8_t               Unknown_0x0f4[4];
+/*0x0f8*/ unsigned int          LastCastTime;
+/*0x0fc*/ uint8_t               Unknown_0x0fc[4];
+/*0x100*/ int                   ActorTag1;
+/*0x104*/ int                   ActorTag2;
+/*0x108*/ void*                 SharedItemDefCtrl;       // [C] SoeUtil::SharedPtr ctrl block ptr
+/*0x110*/ ItemDefinition*       SharedItemDefPtr;        // [C] SoeUtil::SharedPtr data ptr (fallback in GetItemDefinition)
+/*0x118*/ int                   OrnamentationIcon;
+/*0x11c*/ uint8_t               Unknown_0x11c[4];
+/*0x120*/
 // @end: ItemBase Members
 
 	EQLIB_OBJECT ItemBase();
@@ -1255,7 +1264,7 @@ public:
 	__declspec(property(get = get_Item2)) ItemDefinition* Item2;
 };
 
-constexpr size_t ItemClient_size = 0x138; // @sizeof(ItemClient) :: 2026-03-10 (live) @ 0x1401EB0B9
+constexpr size_t ItemClient_size = 0x138; // @sizeof(ItemClient) :: 2026-04-15 (live) @ 0x1401ebae9
 
 class [[offsetcomments]] ItemClient : public ItemBase
 {
@@ -1269,8 +1278,8 @@ public:
 
 	EQLIB_OBJECT static ItemPtr Create() { return eqstd::make_shared<ItemClient>(); }
 
-/*0x120*/ ItemDefinitionPtr SharedItemDef;
-/*0x130*/ CXStr             ClientString;
+/*0x120*/ ItemDefinitionPtr    SharedItemDef;
+/*0x130*/ CXStr               ClientString;
 /*0x138*/
 };
 
