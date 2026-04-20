@@ -377,7 +377,7 @@ DESTRUCTOR_AT_ADDRESS(ItemClient::~ItemClient, ItemClient__dItemClient);
 
 ItemDefinition* ItemClient::GetItemDefinition() const
 {
-	return ItemDef ? ItemDef : SharedItemDefPtr;
+	return ItemDef ? ItemDef : SharedItemDef.get();
 }
 
 //----------------------------------------------------------------------------
