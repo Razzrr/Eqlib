@@ -800,33 +800,33 @@ public:
 class [[offsetcomments]] CEditBaseWnd : public CXWnd
 {
 public:
-/*0x260*/ eTextAlign   eAlign = eta_Left;
-/*0x264*/ int          StartPos = 0;
-/*0x268*/ int          EndPos = 0;
-/*0x26c*/ int          MaxChars = -1;
-/*0x270*/ int          MaxBytesUTF8 = -1;
-/*0x278*/ CXStr        InputText;
-/*0x280*/ int          TagPrintableStarts[EDITWND_MAX_TAGS];
-/*0x2a8*/ int          TagPrintableEnds[EDITWND_MAX_TAGS];
-/*0x2d0*/ int          TagOriginalStarts[EDITWND_MAX_TAGS];
-/*0x2f8*/ int          TagOriginalEnds[EDITWND_MAX_TAGS];
-/*0x320*/ int          TagDynamicSize[EDITWND_MAX_TAGS];
-/*0x348*/ int          TagCodes[EDITWND_MAX_TAGS];
-/*0x370*/ CXStr        TagStrings[EDITWND_MAX_TAGS];
-/*0x3c0*/ int          TagCount;
-/*0x3c4*/ uint32_t     EditStyle;
-/*0x3c8*/
+/*0x258*/ eTextAlign   eAlign = eta_Left;
+/*0x25c*/ int          StartPos = 0;
+/*0x260*/ int          EndPos = 0;
+/*0x264*/ int          MaxChars = -1;
+/*0x268*/ int          MaxBytesUTF8 = -1;
+/*0x270*/ CXStr        InputText;
+/*0x278*/ int          TagPrintableStarts[EDITWND_MAX_TAGS];
+/*0x2a0*/ int          TagPrintableEnds[EDITWND_MAX_TAGS];
+/*0x2c8*/ int          TagOriginalStarts[EDITWND_MAX_TAGS];
+/*0x2f0*/ int          TagOriginalEnds[EDITWND_MAX_TAGS];
+/*0x318*/ int          TagDynamicSize[EDITWND_MAX_TAGS];
+/*0x340*/ int          TagCodes[EDITWND_MAX_TAGS];
+/*0x368*/ CXStr        TagStrings[EDITWND_MAX_TAGS];
+/*0x3b8*/ int          TagCount;
+/*0x3bc*/ uint32_t     EditStyle;
+/*0x3c0*/
 };
 
 class [[offsetcomments]] CListWnd : public CXWnd
 {
 public:
-/*0x260*/ int                 Unknown0x1f0;
-/*0x268*/ ArrayClass<SListWndLine> ItemsArray;
-/*0x280*/ ArrayClass<SListWndColumn> Columns;
-/*0x298*/ int                 CurSel;
-/*0x29c*/ int                 CurCol;
-/*0x2a0*/
+/*0x258*/ int                 Unknown0x1f0;
+/*0x260*/ ArrayClass<SListWndLine> ItemsArray;
+/*0x278*/ ArrayClass<SListWndColumn> Columns;
+/*0x290*/ int                 CurSel;
+/*0x294*/ int                 CurCol;
+/*0x298*/
 	CXStr GetItemText(int row, int col)
 	{
 		if (row < 0 || row >= ItemsArray.Count)
