@@ -1073,35 +1073,34 @@ class [[offsetcomments]] ItemBase : public IChildItemContainer
 {
 public:
 // @start: ItemBase Members
-// Apr 14 2026 live — major field shuffle. Confirmed positions marked [C].
-/*0x008*/ bool                  bCopied;                 // [C]
-/*0x009*/ EqItemGuid            ItemGUID;                // [C] moved from 0x044
+/*0x008*/ bool                  bCopied;
+/*0x009*/ EqItemGuid            ItemGUID;
 /*0x01c*/ int                   Luck;
 /*0x020*/ int64_t               Price;
 /*0x028*/ int                   NoteStatus;
-/*0x02c*/ int                   RealEstateID;            // [C]
+/*0x02c*/ int                   RealEstateID;
 /*0x030*/ int                   ID;
 /*0x034*/ bool                  bCollected;
 /*0x035*/ uint8_t               Unknown_0x035[3];
-/*0x038*/ SoeUtil::String       SaveString;              // [C] moved from 0x080
-/*0x050*/ int                   Power;                       // Binary match: SetPower clamps [0,MaxPower], writes [this+0x050]
-/*0x054*/ int                   Charges;                     // Binary match: clamp-to-100 + MaxCharges check at ItemDef+0x22C
-/*0x058*/ int                   StackCount;              // [C] moved from 0x0bc
-/*0x05c*/ int                   MerchantQuantity;        // [C] moved from 0x10c
+/*0x038*/ SoeUtil::String       SaveString;
+/*0x050*/ int                   Power;
+/*0x054*/ int                   Charges;
+/*0x058*/ int                   StackCount;
+/*0x05c*/ int                   MerchantQuantity;
 /*0x060*/ bool                  bConvertable;
 /*0x061*/ uint8_t               Unknown_0x061[3];
 /*0x064*/ unsigned int          ItemHash;
-/*0x068*/ int64_t               MerchantSlot;            // moved from 0x110
+/*0x068*/ int64_t               MerchantSlot;
 /*0x070*/ int64_t               DontKnow;
-/*0x078*/ CXStr                 ConvertItemName;         // moved from 0x0f8
-/*0x080*/ ItemContainer         Contents;                // [C] moved from 0x018
+/*0x078*/ CXStr                 ConvertItemName;
+/*0x080*/ ItemContainer         Contents;
 /*0x0a8*/ int                   ScriptIndex;
 /*0x0ac*/ uint8_t               Unknown_0x0ac[4];
-/*0x0b0*/ ItemDefinition*       ItemDef;                 // [C] raw override ptr
-/*0x0b8*/ ItemGlobalIndex       GlobalIndex;             // [C] moved from 0x100
+/*0x0b0*/ ItemDefinition*       ItemDef;
+/*0x0b8*/ ItemGlobalIndex       GlobalIndex;
 /*0x0c4*/ uint8_t               Unknown_0x0c4[4];
-/*0x0c8*/ ItemEvolutionDataPtr  pEvolutionData;          // [C] moved from 0x0e0
-/*0x0d8*/ int                   AugFlag;                 // moved from 0x098
+/*0x0c8*/ ItemEvolutionDataPtr  pEvolutionData;
+/*0x0d8*/ int                   AugFlag;
 /*0x0dc*/ unsigned int          NewArmorID;
 /*0x0e0*/ unsigned int          RespawnTime;
 /*0x0e4*/ bool                  bDisableAugTexture;
@@ -1109,13 +1108,13 @@ public:
 /*0x0e8*/ int                   Open;
 /*0x0ec*/ int                   NoDropFlag;
 /*0x0f0*/ int                   Unknown_0x0f0;
-/*0x0f4*/ uint8_t               Unknown_0x0f4[4];
+/*0x0f4*/ int                   ConvertItemID;
 /*0x0f8*/ unsigned int          LastCastTime;
 /*0x0fc*/ uint8_t               Unknown_0x0fc[4];
 /*0x100*/ int                   ActorTag1;
 /*0x104*/ int                   ActorTag2;
-/*0x108*/ void*                 SharedItemDefCtrl;       // [C] SoeUtil::SharedPtr ctrl block ptr
-/*0x110*/ ItemDefinition*       SharedItemDefPtr;        // [C] SoeUtil::SharedPtr data ptr (fallback in GetItemDefinition)
+/*0x108*/ uint64_t              Unknown_0x108;
+/*0x110*/ uint64_t              Unknown_0x110;
 /*0x118*/ int                   OrnamentationIcon;
 /*0x11c*/ uint8_t               Unknown_0x11c[4];
 /*0x120*/
