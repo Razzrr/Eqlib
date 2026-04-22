@@ -1,6 +1,4 @@
 # Merges macroquest/eqlib branches (except live, test) into redguides/eqlib.
-# Operates in a persistent clone on the runner so rerere accumulates between runs.
-# Requires repo secret RG_SYNC_PAT (PAT with contents:write on eqlib).
 name: Sync upstream eqlib
 
 on:
