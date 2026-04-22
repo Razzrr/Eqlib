@@ -525,7 +525,7 @@ public:
 /*0x03e8*/ uint8_t                  FishingEvent;
 /*0x03ec*/ int                      Birthdate;
 /*0x03f0*/ unsigned int             LastRangedUsedTime;
-/*0x03f4*/ int                      Trader;
+/*0x03f4*/ int                      Buyer;
 /*0x03f8*/ int                      Unknown0x03f8;
 /*0x03fc*/ float                    BearingToTarget;
 /*0x0400*/ unsigned int             LastTick;
@@ -570,7 +570,7 @@ public:
 /*0x0548*/ int64_t                  HPCurrent;
 /*0x0550*/ bool                     bBuffTimersOnHold;
 /*0x0551*/ char                     LoginRelated[0x20];
-/*0x0574*/ int                      Buyer;
+/*0x0574*/ int                      Trader;
 /*0x0578*/ int                      ManaMax;
 /*0x057c*/ unsigned int             LoginSerial;
 /*0x0580*/ uint8_t                  StandState;
