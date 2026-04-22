@@ -525,7 +525,7 @@ public:
 /*0x03e8*/ uint8_t                  FishingEvent;
 /*0x03ec*/ int                      Birthdate;
 /*0x03f0*/ unsigned int             LastRangedUsedTime;
-/*0x03f4*/ int                      Unknown0x03f4;
+/*0x03f4*/ int                      Trader;
 /*0x03f8*/ int                      Unknown0x03f8;
 /*0x03fc*/ float                    BearingToTarget;
 /*0x0400*/ unsigned int             LastTick;
@@ -556,7 +556,7 @@ public:
 /*0x0489*/ uint8_t                  unknown0x0489;
 /*0x048a*/ uint8_t                  unknown0x048a;
 /*0x048b*/ uint8_t                  unknown0x048b;
-/*0x048c*/ bool                     bOfflineMode;
+/*0x048c*/ unsigned int             HibernatingCount;
 /*0x0490*/ float                    MissileRangeToTarget;
 /*0x0494*/ int                      Unknown0x0494;
 /*0x0498*/ bool                     Unknown0x0498;
@@ -570,7 +570,7 @@ public:
 /*0x0548*/ int64_t                  HPCurrent;
 /*0x0550*/ bool                     bBuffTimersOnHold;
 /*0x0551*/ char                     LoginRelated[0x20];
-/*0x0574*/ int                      Trader;
+/*0x0574*/ int                      Buyer;
 /*0x0578*/ int                      ManaMax;
 /*0x057c*/ unsigned int             LoginSerial;
 /*0x0580*/ uint8_t                  StandState;
@@ -584,7 +584,7 @@ public:
 /*0x0598*/ unsigned int             RespawnTimer;
 /*0x05a0*/ CharacterZoneClient*     pCharacter;
 /*0x05a8*/ int                      DoSpecialMelee;
-/*0x05ac*/ unsigned int             HibernatingCount;
+/*0x05ac*/ int                      unk0x5ac;
 /*0x05b0*/ bool                     LFG;
 /*0x05b1*/ bool                     bSwitchMoved;  // wrong, but not used anywhere in the codebase
 /*0x05b4*/ unsigned int             SpellCooldownETA;
@@ -603,7 +603,8 @@ public:
 /*0x061c*/ float                    ViewHeight;
 /*0x0620*/ void*                    pTouchingSwitch;
 /*0x0628*/ unsigned int             TimeStamp;
-/*0x062c*/ int                      Buyer;
+/*0x062c*/ bool                     bOfflineMode;
+/*0x062d*/ uint8_t                  UnknownPad0x062D[3];
 /*0x0630*/ uint8_t                  LastAttack;
 /*0x0631*/ uint8_t                  IntimidateCount;
 /*0x0632*/ uint8_t                  IsPassenger;
