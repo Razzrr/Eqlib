@@ -548,10 +548,7 @@ namespace eqlib
 		/*0x0490*/ float MissileRangeToTarget;
 		/*0x0494*/ int Unknown0x0494;
 		/*0x0498*/ bool Unknown0x0498;
-		/*0x0499*/ uint8_t Unknown0x0499;
-		/*0x049a*/ uint8_t Unknown0x049a;
-		/*0x049b*/ uint8_t Unknown0x049b;
-		/*0x049c*/ bool bAlwaysShowAura;
+		/*0x049c*/ int FamiliarID;
 		/*0x04a0*/ unsigned int CorpseDragCount;
 		/*0x04a4*/ EqItemGuid realEstateItemGuid;
 		/*0x04b6*/ char DraggingPlayer[0x40];
@@ -579,22 +576,19 @@ namespace eqlib
 		/*0x05b0*/ bool LFG;
 		/*0x05b1*/ bool bSwitchMoved;  // wrong, but not used anywhere in the codebase
 		/*0x05b4*/ unsigned int SpellCooldownETA;
-		/*0x05b8*/ uint8_t                  Unknown0x05B8;       // MTF: 1-byte field, name unknown
-		/*0x05bc*/ unsigned int             MasterID;
-		/*0x05c0*/ unsigned int             CombatSkillTicks[CONCURRENT_SKILLS];
-		/*0x05c8*/ unsigned int             LastRefresh;          // MTF+Ghidra+memscan triple verified
-		/*0x05cc*/ unsigned int             LastTrapDamageTime;
-		/*0x05d0*/ bool                     bTempPet;             // MTF: OLD 0x01CC->NEW 0x05D0
-		/*0x05d1*/ bool                     PvPFlag;              // MTF: OLD 0x0598->NEW 0x05D1
-		/*0x05d2*/ uint8_t                  AltAttack;            // MTF: SIZE_CHANGED int->byte
-		/*0x05d4*/ unsigned int             LastPrimaryUseTime;
-		/*0x05d8*/ bool                     Mercenary;
-		/*0x05d9*/ uint8_t                  Unknown0x05D9;
-		/*0x05da*/ uint8_t                  Unknown0x05DA;
-		/*0x05db*/ uint8_t                  Unknown0x05DB;
-		/*0x05dc*/ unsigned int             NextSwim;
-		/*0x05e0*/ unsigned int             SpellGemETA[15];      // 1-based: gems at [1]-[12]
-		/*0x061c*/ float                    ViewHeight;
+		/*0x05b8*/ uint8_t Unknown0x05B8;
+		/*0x05bc*/ unsigned int MasterID;
+		/*0x05c0*/ unsigned int CombatSkillTicks[CONCURRENT_SKILLS];
+		/*0x05c8*/ unsigned int LastRefresh;
+		/*0x05cc*/ unsigned int LastTrapDamageTime;
+		/*0x05d0*/ bool bTempPet;
+		/*0x05d1*/ bool PvPFlag;
+		/*0x05d2*/ uint8_t AltAttack;
+		/*0x05d4*/ unsigned int LastPrimaryUseTime;
+		/*0x05d8*/ bool Mercenary;
+		/*0x05dc*/ unsigned int NextSwim;
+		/*0x05e0*/ unsigned int SpellGemETA[15];      // 1-based: gems at [1]-[12]
+		/*0x061c*/ float ViewHeight;
 		/*0x0620*/ void *pTouchingSwitch;
 		/*0x0628*/ unsigned int TimeStamp;
 		/*0x062c*/ int Buyer;
