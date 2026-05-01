@@ -318,7 +318,6 @@ ItemBase::ItemBase()
 //	bItemNeedsUpdate = false;
 	Price = 0;
 	Open = 0;
-	NoteStatus = 0;
 	bConvertable = false;
 //	Tint = 0;
 //	ArmorType = 0;

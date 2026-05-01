@@ -639,6 +639,7 @@ EQLIB_VAR uintptr_t FreeToPlayClient__RestrictionInfo;
 EQLIB_VAR uintptr_t IconCache__GetIcon;
 EQLIB_VAR uintptr_t ItemBase__CanGemFitInSlot;
 EQLIB_VAR uintptr_t ItemBase__CreateItemTagString;
+EQLIB_VAR uintptr_t ItemBase__GetConvertItemNamePtr;
 EQLIB_VAR uintptr_t ItemBase__GetImageNum;
 EQLIB_VAR uintptr_t ItemBase__GetItemValue;
 EQLIB_VAR uintptr_t ItemBase__IsEmpty;
