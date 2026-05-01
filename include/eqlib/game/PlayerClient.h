@@ -538,7 +538,7 @@ public:
 /*0x0440*/ bool                     bShowHelm;
 /*0x0444*/ int                      PrimaryTintIndex;
 /*0x0448*/ unsigned int             CombatSkillUsed[CONCURRENT_SKILLS];
-/*0x0450*/ uint8_t                  Blind;
+/*0x0450*/ uint8_t                  IntimidateState;
 /*0x0454*/ unsigned int             SitStartTime;
 /*0x0458*/ float                    CameraOffset;
 /*0x045c*/ unsigned int             LastMealTime;
@@ -588,7 +588,7 @@ public:
 /*0x05b0*/ bool                     LFG;
 /*0x05b1*/ bool                     bSwitchMoved;  // wrong, but not used anywhere in the codebase
 /*0x05b4*/ unsigned int             SpellCooldownETA;
-/*0x05b8*/ uint8_t                  Unknown0x05B8;
+/*0x05b8*/ uint8_t                  Blind;
 /*0x05bc*/ unsigned int             MasterID;
 /*0x05c0*/ unsigned int             CombatSkillTicks[CONCURRENT_SKILLS];
 /*0x05c8*/ unsigned int             LastRefresh;
@@ -741,7 +741,7 @@ struct BardQueueUnknown
 // PlayerClient
 //============================================================================
 
-constexpr size_t PlayerClient_size = 0x20C0; // @sizeof(PlayerClient) :: 2026-04-14 (live) @ 0x14030713e
+constexpr size_t PlayerClient_size = 0x20C0; // @sizeof(PlayerClient) :: 2026-04-30 (live) @ 0x14030716e
 
 class [[offsetcomments]] PlayerClient : public PlayerZoneClient
 {
