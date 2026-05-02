@@ -2540,9 +2540,6 @@ FUNCTION_AT_ADDRESS(void, ConvertItemTags(CXStr&, bool), __ConvertItemTags);
 #ifdef ItemBase__CreateItemTagString_x
 FUNCTION_AT_ADDRESS(char*, ItemBase::CreateItemTagString(char*, int, bool), ItemBase__CreateItemTagString);
 #endif
-#ifdef ItemBase__GetConvertItemNamePtr_x
-FUNCTION_AT_ADDRESS(const char*, ItemBase::GetConvertItemNamePtr() const, ItemBase__GetConvertItemNamePtr);
-#endif
 #ifdef ItemBase__GetImageNum_x
 FUNCTION_AT_ADDRESS(int, ItemBase::GetImageNum() const, ItemBase__GetImageNum);
 #endif

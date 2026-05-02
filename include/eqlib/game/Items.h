@@ -962,11 +962,9 @@ public:
 /*0x60c*/ float               PlaceableDefPitch;
 /*0x610*/ float               PlaceableDefRoll;
 /*0x614*/ bool                bInteractiveObject;
-/*0x615*/ uint8_t             SocketSubClassCount;
-/*0x618*/ int                 ConvertItemID;
+/*0x618*/ uint32_t            ConvertItemID;
 /*0x61c*/ char                ConvertItemName[0x40];
-/*0x65c*/ bool                bUnknown0x65c;
-/*0x65d*/ uint8_t             pad_0x65d[3];
+/*0x65c*/ uint8_t             SocketSubClassCount;
 /*0x660*/ int                 SocketSubClass[10];
 /*0x688*/
 
@@ -1174,7 +1172,6 @@ public:
 
 	EQLIB_OBJECT ItemPtr CreateItemClient(CUnSerializeBuffer& buffer);
 	EQLIB_OBJECT bool CanDrop(bool bDisplayText = false, bool bIncludeContainedItems = true, bool bAllowOverrideNoDropCheck = false, bool bCantDropIfContainingRealEstate = true) const;
-	EQLIB_OBJECT const char* GetConvertItemNamePtr() const;
 	EQLIB_OBJECT int GetImageNum() const;
 	EQLIB_OBJECT int GetItemValue(bool) const;
 	EQLIB_OBJECT bool IsKeyRingItem(KeyRingType type) const;
@@ -1215,8 +1212,8 @@ public:
 	// Convertible Item and Collection fields
 	bool IsCollected() const { return bCollected; }
 	bool IsConvertible() const { return bConvertable; }
-	int GetConvertItemID() const { return ItemDef->ConvertItemID; }
-	CXStr GetConvertItemName() const { return CXStr(GetConvertItemNamePtr()); }
+	int GetConvertItemID() const { return GetItemDefinition()->ConvertItemID; }
+	CXStr GetConvertItemName() const { return GetItemDefinition()->ConvertItemName; }
 
 	// Luck Accessors
 	int GetLuck() const { return Luck; }
