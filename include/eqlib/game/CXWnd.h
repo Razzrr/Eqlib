@@ -732,19 +732,19 @@ public:
 
 // @start: CXWnd Members
 	/*0x030*/ bool                                bMaximized;                              // OnTileBox, BringToTop verified at 0x030
-	/*0x031*/ bool                                Unknown0x031;
+	/*0x031*/ bool                                bIsTransitioning;                        // Checked and set CXWndManager function
 	/*0x032*/ bool                                bUseInLayoutVertical;                    // Cezero layout, not assembly verified
 	/*0x033*/ bool                                bNeedsSaving;                            // INI: StoreIniInfo clears, LoadIniInfo sets
 	/*0x034*/ bool                                Fades;                                   // INI 'Fades', Blink func, DoAllDrawing
-	/*0x038*/ uint32_t                            BlinkFadeDuration;                       // Ctor, Blink function
+	/*0x038*/ uint32_t                            BlinkDuration;                           //
 	/*0x03c*/ bool                                bRightAnchoredToLeft;                    // GetRelativeRect pairs with RightOffset(0x250)
 	/*0x040*/ int                                 VScrollMax;                              // Ctor init 100, DrawNC, DrawBackground2
 	/*0x044*/ int                                 HScrollMax;                              // Ctor init 100, DrawNC
-	/*0x048*/ uint8_t                             FadeToAlpha;                             // INI 'Alpha' reads 0x049 not 0x048
+	/*0x048*/ uint8_t                             FadeAlpha;                               // Current alpha value mid-transition
 	/*0x049*/ uint8_t                             Alpha;                                   // INI 'Alpha'=0x049
 	/*0x04a*/ bool                                Unknown0x04A;                            // Copy functions confirm bool exists, name unverified
 	/*0x04b*/ bool                                Unknown0x04B;                            // Copy functions confirm bool exists, name unverified
-	/*0x04c*/ int                                 bAction;                                 // Binary reads/writes as dword at 0x04C
+	/*0x04c*/ int                                 bAction;                                 // TODO verify
 	/*0x050*/ CTextureFont*                       pFont;                                   // Ctor, SetAttributesFromSidl
 	/*0x058*/ CTextObjectInterface*               pTipTextObject;                          // Ctor, SetAttributesFromSidl
 	/*0x060*/ COLORREF                            BGColor;                                 // INI 'BGTint', DoAllDrawing, SetBGColor vtable
@@ -766,7 +766,7 @@ public:
 	/*0x0b8*/ bool                                Minimized;                               // INI 'Minimized', Minimize, DoAllDrawing
 	/*0x0bc*/ int                                 ZLayer;                                  // Ctor, SetZLayer vtable
 	/*0x0c0*/ bool                                bClientClipRectChanged;                  // Ctor true, GetClientClipRect, SetScrollPos
-	/*0x0c4*/ uint32_t                            BlinkStartTick;                          // MISSING: Blink function GetTickCount()-[rbx+0xC4]
+	/*0x0c4*/ uint32_t                            BlinkFadeStartTime;                      //
 	/*0x0c8*/ COLORREF                            CRNormal;                                // Ctor 0xFFC0C0C0, DrawTitleBar
 	/*0x0cc*/ uint32_t                            LastBlinkFadeRefreshTime;                // Blink fade refresh timer
 	/*0x0d0*/ bool                                bClickThroughMenuItemStatus;             // Ctor, Cezero placement
@@ -775,16 +775,15 @@ public:
 	/*0x0e4*/ bool                                bHCenterTooltip;                         // Ctor true
 	/*0x0e5*/ bool                                bFullyScreenClipped;                     // Screen clip recalc: set when ClipRectScreen all -1
 	/*0x0e6*/ bool                                Unknown0x0E6;                            // Not bKeepOnScreen — bKeepOnScreen is at 0x18B per Resize function match
-	/*0x0e7*/ bool                                bUseInLayoutHorizontal;                  // Not verified, relies on zero-fill
+	/*0x0e7*/ bool                                bUseInLayoutHorizontal;                  // TODO verify
 	/*0x0e8*/ CXStr                               DataStr;                                 // CXStr (dtor cleans), identified as DataStr
 	/*0x0f0*/ int                                 BottomOffset;                            // GetRelativeRect pairs with bBottomAnchoredToTop(0x221)
 	/*0x0f4*/ CXSize                              MaxClientSize;                           // GetMaxClientSize vtable returns lea[rcx+0xF4]
 	/*0x0fc*/ bool                                bLeftAnchoredToLeft;                     // GetRelativeRect, UpdateGeometry
-	/*0x0fd*/ uint8_t              UnknownPad0x0FD[3];                                        // MSVC alignment to 0x100
 	/*0x100*/ uint32_t                            LastTimeMouseOver;                       // Separate from LastBlinkFadeRefreshTime at 0x0CC
 	/*0x104*/ int                                 Transition;                              // ProcessTransition, Minimize sets 1/2, StartFade sets 4
 	/*0x108*/ int                                 managerArrayIndex;                       // Ctor -1
-	/*0x110*/ CStaticTintedBlendAnimationTemplate* TitlePiece;                              // Ctor, DrawTitleBar
+	/*0x110*/ CStaticTintedBlendAnimationTemplate* TitlePiece;                             // Ctor, DrawTitleBar
 	/*0x118*/ int                                 HScrollPos;                              // SetHScrollPos, scroll handler
 	/*0x11c*/ bool                                bShowClickThroughMenuItem;               // Ctor
 	/*0x120*/ uint32_t                            TransitionDuration;                      // Minimize sets 0x7D, StartFade
@@ -794,9 +793,10 @@ public:
 	/*0x139*/ bool                                bMaximizable;                            // Ctor word 0x0101, Minimize checks
 	/*0x140*/ CXWndDrawTemplate*                  DrawTemplate;                            // SetDrawTemplate vtable, ctor LEA
 	/*0x148*/ bool                                MouseOver;                               // Show, ctor
+	/*0x149*/ bool                                bCaptureTitle;                           // Ctor only
 	/*0x150*/ CXWnd*                              FocusProxy;                              // Ctor
 	/*0x158*/ uint8_t                             TargetAlpha;                             // Ctor 0xFF, StartFade, Show
-	/*0x15c*/ uint32_t                            BlinkFadeStartTime;                      // Blink function
+	/*0x15c*/ uint32_t                            BlinkStartTimer;                         // When the Blink transition started
 	/*0x160*/ CLayoutStrategy*                    pLayoutStrategy;                         // Ctor
 	/*0x168*/ CXStr                               XMLToolTip;                              // Ctor
 	/*0x170*/ int                                 LeftOffset;                              // GetRelativeRect, UpdateGeometry
@@ -806,10 +806,10 @@ public:
 	/*0x180*/ int                                 DeleteCount;                             // Ctor
 	/*0x184*/ bool                                bMarkedForDelete;                        // Ctor
 	/*0x185*/ bool                                bTopAnchoredToTop;                       // GetRelativeRect pairs with TopOffset(0x1C8)
-	/*0x186*/ bool                                bCaptureTitle;                           // OnKillFocus vtable reads, iluvseq identified
-	/*0x187*/ uint8_t                             FadeAlpha;                               // INI key 'FadeToAlpha' reads/writes this offset
+	/*0x186*/ bool                                Unknown0x186;                            //
+	/*0x187*/ uint8_t                             FadeToAlpha;                             // INI key 'FadeToAlpha' reads/writes this offset
 	/*0x188*/ bool                                Unlockable;                              // SetLocked vtable guards with [rcx+0x188] (assembly verified)
-	/*0x189*/ bool                                bIsTransitioning;                        // Ctor false
+	/*0x189*/ bool                                Unknown0x189;                            //
 	/*0x18a*/ bool                                bEscapableLocked;                        // Cezero placement (was at 0x0D0, no assembly proof either way)
 	/*0x18b*/ bool                                bKeepOnScreen;                           // Binary verified: Resize function match March 0x106→April 0x18B
 	/*0x18c*/ CXRect                              Location;                                // INI location, ctor from param, GetRelativeRect, UpdateGeometry
@@ -823,8 +823,8 @@ public:
 	/*0x1b8*/ CXRect                              OldLocation;                             // INI restore rect, Minimize
 	/*0x1c8*/ int                                 TopOffset;                               // GetRelativeRect pairs with bTopAnchoredToTop(0x185)
 	/*0x1d0*/ ArrayClass2<uint32_t>               RuntimeTypes;                            // Ctor, all 6 sub-fields verified
-	/*0x1f0*/ uint32_t                            BlinkDuration;                           // Blink func compares elapsed vs [rbx+0x1F0]
-	/*0x1f4*/ int                                 BlinkStartTimer;                         // Blink mouse-over timer, Show
+	/*0x1f0*/ uint32_t                            BlinkStartTick;                          //
+	/*0x1f4*/ int                                 BlinkFadeFreq;                           //
 	/*0x1f8*/ int                                 ParentAndContextMenuArrayIndex;          // Ctor -1
 	/*0x1fc*/ uint32_t                            WindowStyle;                             // DoAllDrawing, GetRelativeRect, DrawNC
 	/*0x200*/ int64_t                             Data;                                    // User data storage, only 8-byte-aligned 8-byte gap in struct
@@ -834,13 +834,13 @@ public:
 	/*0x218*/ CXWnd*                              ParentWindow;                            // GetRelativeRect, Blink, DrawTitleBar, SetParent
 	/*0x220*/ bool                                bIsParentOrContextMenuWindow;            // Ctor
 	/*0x221*/ bool                                bBottomAnchoredToTop;                    // GetRelativeRect pairs with BottomOffset(0x0F0), UpdateGeometry
-	/*0x222*/ bool                                bTiled;                                  // iluvseq placement
+	/*0x222*/ bool                                bTiled;                                  // TODO verify
 	/*0x224*/ int                                 BlinkState;                              // Blink function toggles 0/1, sets -1
 	/*0x228*/ int                                 VScrollPos;                              // DrawNC, SetVScrollPos
 	/*0x22c*/ CXRect                              ClientRect;                              // Ctor, GetClientRect
 	/*0x23c*/ bool                                bScreenClipRectChanged;                  // Ctor true, DoAllDrawing, UpdateGeometry
 	/*0x240*/ CXStr                               Tooltip;                                 // SetTooltip/GetTooltip vtable. NOT bAction+bools
-	/*0x248*/ uint32_t                            BlinkFadeFreq;                           // Ctor 0x32(50), Blink fade freq check
+	/*0x248*/ uint32_t                            BlinkFadeDuration;                       //
 	/*0x24c*/ uint32_t                            FadeDuration;                            // INI 'Duration', Blink mouse-over, StartFade
 	/*0x250*/ int                                 RightOffset;                             // GetRelativeRect pairs with bRightAnchoredToLeft(0x03C)
 	/*0x254*/ bool                                bUsesClassicUI;                          // Ctor from param, DoAllDrawing
