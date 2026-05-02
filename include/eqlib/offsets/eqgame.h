@@ -654,7 +654,6 @@
 // ItemClient
 #define ItemBase__CanGemFitInSlot_x                        0x14066B100
 #define ItemBase__CreateItemTagString_x                    0x14066BBA0
-#define ItemBase__GetConvertItemNamePtr_x                  0x14066DDB0
 #define ItemBase__GetImageNum_x                            0x14066E320
 #define ItemBase__GetItemValue_x                           0x14066FE60
 #define ItemBase__IsEmpty_x                                0x140671C00
