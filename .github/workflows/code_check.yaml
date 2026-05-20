@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   check:
-    if: github.repository == 'redguides/eqlib'
+    if: startsWith(github.repository, 'redguides/eqlib')
     runs-on: windows-latest
     steps:
       - name: Check out code
