@@ -201,7 +201,7 @@ public:
 /*0x18f4*/ int                                   TattooIndex;
 /*0x18f8*/ int                                   FacialAttachmentIndex;
 /*0x18fc*/ ItemIndex                             StatKeyRingItemIndex[eKeyRingTypeCount];
-/*0x1926*/ uint8_t                               Unknown_0x1928[0x10];
+/*0x1926*/ uint8_t                               Unknown_0x1926[0x10];
 /*0x1938*/
 
 	// This expects parameter of type eInventorySlot
@@ -335,7 +335,7 @@ struct PetObjectData;
 
 constexpr int MAX_LINKED_SPELL_TIMERS = 25;
 
-constexpr size_t PcProfile_size = 0x6EA8; // @sizeof(PcProfile) :: 2026-05-11 (test) @ 0x14067b784
+constexpr size_t PcProfile_size = 0x6EA8; // @sizeof(PcProfile) :: 2026-05-22 (live)
 
 class [[offsetcomments]] PcProfile : public BaseProfile
 {
