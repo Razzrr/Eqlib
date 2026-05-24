@@ -50,7 +50,7 @@ enum EPlace
 	CanPlaceAndGoto,
 };
 
-constexpr size_t zoneHeader_size = 0x2A4; // @sizeof(zoneHeader) :: 2026-05-22 (live) embedded EverQuestinfo::ZoneInfo @+0x1F4 (no separate alloc; size binary-unconfirmed)
+constexpr size_t zoneHeader_size = 0x2A4; // @sizeof(zoneHeader) :: 2026-05-22 (live) @ 0x140EB27B4
 
 struct [[offsetcomments]] zoneHeader
 {
@@ -314,7 +314,7 @@ struct [[offsetcomments]] EQGameOptions
 
 
 // size of EverQuestinfo is the distance from this byte to the end of the struct
-constexpr size_t EverQuestinfo_size = 0x75278; // @sizeof(EverQuestinfo) :: 2026-05-22 (live) @ 0x1401a7a5d
+constexpr size_t EverQuestinfo_size = 0x75278; // @sizeof(EverQuestinfo) :: 2026-05-22 (live) @ 0x140EB25C0
 
 struct [[offsetcomments]] EverQuestinfo
 {
@@ -961,8 +961,7 @@ public:
 /*0x18eb4*/ int                   Green;
 /*0x18eb8*/ int                   Blue;
 /*0x18ec0*/ ArrayClass<CharSelectInfo> charSelectPlayerArray;
-/*0x18ed8*/ char                  Filler[0x830]; // more data
-/*0x19708*/ uint8_t               Unknown0x19708[8];
+/*0x18ed8*/ char                  Filler[0x838]; // more data
 /*0x19710*/
 
 	ALT_MEMBER_GETTER(UniversalChatProxy*, chatService, ChatService);
