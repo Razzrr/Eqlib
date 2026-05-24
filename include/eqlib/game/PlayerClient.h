@@ -308,16 +308,17 @@ public:
 struct [[offsetcomments]] PZCPhysicsInfo
 {
 // @start: PZCPhysicsInfo Members
-/*0x00*/ unsigned int ZHeading : 12;
-/*0x04*/ float DeltaX;
-/*0x08*/ float Z;
-/*0x0c*/ float Y;
-/*0x10*/ float DeltaZ;
-/*0x14*/ unsigned int Acceleration : 10;
-/*0x14*/ unsigned int Heading : 12;
-/*0x18*/ float DeltaY;
-/*0x1c*/ unsigned int DeltaHeading : 10;
-/*0x20*/
+/*0x00*/ float Y;
+/*0x04*/ int ZHeading : 12;
+/*0x04*/ int Heading : 12;
+/*0x08*/ float DeltaY;
+/*0x0c*/ int Acceleration : 10;
+/*0x10*/ float Z;
+/*0x14*/ float X;
+/*0x18*/ float DeltaX;
+/*0x1c*/ int DeltaHeading : 10;
+/*0x20*/ float DeltaZ;
+/*0x24*/
 // @end: PZCPhysicsInfo Members
 };
 
@@ -649,7 +650,6 @@ public:
 /*0x0f9c*/ unsigned int       RaidMarkNPC[MAX_RAID_MARK_TARGETS];
 /*0x0fa8*/ unsigned int       TargetOfTarget;
 /*0x0fac*/ PZCPhysicsInfo     PZCLastPhysics;
-/*0x0fcc*/ uint8_t            Unknown0xFCC[0x4];                 // +4 physics-record growth vs prior layout
 /*0x0fd0*/ unsigned int       ParticleCastStartTime;
 /*0x0fd4*/ unsigned int       ParticleCastDuration;
 /*0x0fd8*/ int                ParticleVisualSpellNum;             // -1 = none
