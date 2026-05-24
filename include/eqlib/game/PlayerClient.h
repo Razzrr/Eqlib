@@ -494,7 +494,7 @@ public:
 /*0x01cc*/ uint8_t                  GM;
 /*0x01cd*/ uint8_t                  Unknown0x01CD[0x3];
 /*0x01d0*/ float                    FallingStartZ;  // nv
-/*0x01d4*/ float                    MerchantGreed;  // nv
+/*0x01d4*/ int                      Unknown0x01D4;
 /*0x01d8*/ float                    GetMeleeRangeVar1;  // nv
 /*0x01dc*/ uint8_t                  Unknown0x01DC[0x4];
 /*0x01e0*/ int64_t                  HPCurrent;
@@ -505,10 +505,10 @@ public:
 /*0x0214*/ int                      EnduranceMax;
 /*0x0218*/ uint8_t                  IntimidateState;  // nv
 /*0x0219*/ uint8_t                  Unknown0x0219[0x3];
-/*0x021c*/ int                      Unknown0x021C;
+/*0x021c*/ float                    MerchantGreed;
 /*0x0220*/ uint8_t                  bShowHelm;  // nv
 /*0x0221*/ uint8_t                  Unknown0x0221[0x3];
-/*0x0224*/ int                      Unknown0x0374;
+/*0x0224*/ float                    ViewHeight;
 /*0x0228*/ EQSwitch*                pTouchingSwitch;
 /*0x0230*/ uint8_t                  bAnimationOnPop;  // nv
 /*0x0231*/ uint8_t                  GMRank;  // nv
@@ -526,7 +526,7 @@ public:
 /*0x0295*/ uint8_t                  Unknown0x0295[0x3];
 /*0x0298*/ int                      MasterID;
 /*0x029c*/ uint8_t                  Unknown0x029C[0x4];
-/*0x02a0*/ unsigned int**           ppUDP;  // nv
+/*0x02a0*/ int64_t                  Unknown0x02A0;
 /*0x02a8*/ uint8_t                  bSummoned;
 /*0x02a9*/ uint8_t                  Unknown0x02A9[0x3];
 /*0x02ac*/ int                      NextIntimidateTime;  // nv
@@ -569,7 +569,7 @@ public:
 /*0x0466*/ uint8_t                  Unknown0x0466[0x2];
 /*0x0468*/ int                      RespawnTimer;  // nv
 /*0x046c*/ int                      DoSpecialMelee;  // nv
-/*0x0470*/ uint8_t                  Unknown0x03f4;
+/*0x0470*/ bool                     PvPFlag;
 /*0x0471*/ char                     Suffix[0x80];
 /*0x04f1*/ uint8_t                  Unknown0x04F1[0x7];
 /*0x04f8*/ PcClient*                pPcClient;
@@ -587,7 +587,7 @@ public:
 /*0x0558*/ int                      LastTrapDamageTime;  // nv
 /*0x055c*/ uint8_t                  Light;               // spawn light-source radius/type (ChangeLight FUN_1403065c0 byte[+0x55c])
 /*0x055d*/ uint8_t                  Unknown0x055D[0x3];
-/*0x0560*/ int64_t                  Unknown0x0560;
+/*0x0560*/ unsigned int**           ppUDP;
 /*0x0568*/ float                    BearingToTarget;  // nv
 /*0x056c*/ int                      IsAttacking;  // nv
 /*0x0570*/ int                      LastTimeStoodStill;  // nv
@@ -628,12 +628,12 @@ public:
 /*0x062c*/ int                      TimeStamp;  // nv
 /*0x0630*/ int                      IntimidateCount;  // nv
 /*0x0634*/ int                      RealEstateItemId2;  // nv
-/*0x0638*/ int                      ViewHeight;  // nv
-/*0x063c*/ float                    Unknown0x063C;
+/*0x0638*/ int                      Unknown0x0638;
+/*0x063c*/ unsigned int             FishingETA;
 /*0x0640*/ float                    CameraOffset;  // nv
 /*0x0644*/ int                      CorpseDragCount2;  // nv
 /*0x0648*/ float                    MissileRangeToTarget;  // nv
-/*0x064c*/ int                      FishingETA;  // nv
+/*0x064c*/ int                      Unknown0x064C;
 /*0x0650*/ uint8_t                  Original;  // nv
 /*0x0651*/ uint8_t                  Unknown0x0651[0x3];
 /*0x0654*/ int                      Zone;                // contested/instance zone id (SetNameSpriteState 0x14030ca52; ChangeLight cluster)
