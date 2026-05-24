@@ -38,7 +38,7 @@
 // Misc Globals
 #define __do_loot_x                                        0x14022CBD0
 #define __gfMaxZoomCameraDistance_x                        0x140922638
-#define __gfMaxCameraDistance_x                            0x140ACC124
+#define __gfMaxCameraDistance_x                            0x140ACC114
 #define __CurrentSocial_x                                  0x140C1E0D4
 #define __BindList_x                                       0x140D5D950
 #define g_eqCommandStates_x                                0x140D5E9F0
@@ -523,7 +523,7 @@
 #define CSidlScreenWnd__LoadIniListWnd_x                   0x1405BFAC0
 #define CSidlScreenWnd__LoadSidlScreen_x                   0x1405C04C0
 #define CSidlScreenWnd__m_layoutCopy_x                     0x140F539B8
-#define CSidlScreenWnd__StoreIniInfo_x                     0x1405C0D50
+#define CSidlScreenWnd__StoreIniInfo_x                     0x1405C0B40
 #define CSidlScreenWnd__StoreIniVis_x                      0x1405C1330
 #define CSidlScreenWnd__vftable_x                          0x140AE8F78
 #define CSidlScreenWnd__WndNotification_x                  0x1405C1380
