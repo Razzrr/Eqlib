@@ -143,7 +143,7 @@
 #define __DoesFileExist_x                                  0x1405AB5A0
 #define __EQGetTime_x                                      0x1405A7AE0
 #define __ExecuteCmd_x                                     0x140224080
-#define __FixHeading_x                                     0x140664870
+#define __FixHeading_x                                     0x140664210
 #define __FlushDxKeyboard_x                                0x140352130
 #define __get_bearing_x                                    0x1402598B0
 #define __get_melee_range_x                                0x1402599A0
@@ -477,7 +477,7 @@
 // MapViewMap
 #define MapViewMap__vftable_x                              0x140A4E8E0
 #define MapViewMap__Clear_x                                0x140469F80
-#define MapViewMap__SetZoom_x                              0x140470370
+#define MapViewMap__SetZoom_x                              0x140470660
 #define MapViewMap__HandleLButtonDown_x                    0x14046D160
 
 // CMerchantWnd
@@ -599,7 +599,7 @@
 #define CXWnd__ClrFocus_x                                  0x1405C3E90
 #define CXWnd__Destroy_x                                   0x1405C4010
 #define CXWnd__DoAllDrawing_x                              0x1405C4110
-#define CXWnd__DrawColoredRect_x                           0x1405C4AF0
+#define CXWnd__DrawColoredRect_x                           0x1405C48E0
 #define CXWnd__DrawTooltip_x                               0x1405C5F50
 #define CXWnd__DrawTooltipAtPoint_x                        0x1405C6010
 #define CXWnd__GetChildItem_x                              0x1405C6920
@@ -911,7 +911,7 @@
 #define CUnSerializeBuffer__GetString_x                    0x140088E20
 
 // ZoneGuideManagerClient
-#define ZoneGuideManagerClient__Instance_x                 0x140358DA0
+#define ZoneGuideManagerClient__Instance_x                 0x140359090
 
 // AchievementManager
 #define AchievementManager__Instance_x                     0x140091FD0
