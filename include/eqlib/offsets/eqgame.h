@@ -290,7 +290,7 @@
 // CComboWnd
 #define CComboWnd__DeleteAll_x                                     0x1405CC2F0
 #define CComboWnd__Draw_x                                          0x1405CC3F0
-#define CComboWnd__GetCurChoice_x                                  0x1405CC6E0  // unused
+#define CComboWnd__GetCurChoice_x                                  0x1405CC760  // unused
 #define CComboWnd__GetListRect_x                                   0x1405CC780
 #define CComboWnd__InsertChoice_x                                  0x1405CCAC0
 #define CComboWnd__SetColors_x                                     0x1405CCE50
@@ -324,7 +324,7 @@
 
 // CEditWnd
 #define CEditBaseWnd__SetSel_x                                     0x14060E170
-#define CEditWnd__DrawCaret_x                                      0x1405FF8E0  // unused
+#define CEditWnd__DrawCaret_x                                      0x1405F4D80  // unused
 #define CEditWnd__EnsureCaretVisible_x                             0x1405FFE00
 #define CEditWnd__GetCaretPt_x                                     0x1406000A0  // unused
 #define CEditWnd__GetCharIndexPt_x                                 0x1406000E0
@@ -506,8 +506,8 @@
 #define CSidlManager__CreateXWnd_x                                 0x14050AE30
 
 // CSidlScreenWnd
-#define CSidlScreenWnd__CalculateHSBRange_x                        0x1405BD950
-#define CSidlScreenWnd__CalculateVSBRange_x                        0x1405BD820
+#define CSidlScreenWnd__CalculateHSBRange_x                        0x1405BD820
+#define CSidlScreenWnd__CalculateVSBRange_x                        0x1405BD950
 #define CSidlScreenWnd__ConvertToRes_x                             0x1406084B0 // LayoutTools::ConvertToRes
 #define CSidlScreenWnd__CreateChildrenFromSidl_x                   0x1405BDAC0
 #define CSidlScreenWnd__CSidlScreenWnd1_x                          0x1405BCF60
@@ -517,7 +517,7 @@
 #define CSidlScreenWnd__EnableIniStorage_x                         0x1405BE3E0
 #define CSidlScreenWnd__GetChildItem_x                             0x1405BE580
 #define CSidlScreenWnd__GetSidlPiece_x                             0x1405BE7D0
-#define CSidlScreenWnd__HandleLButtonUp_x                          0x1405C8860 // CXWnd::HandleLButtonUp
+#define CSidlScreenWnd__HandleLButtonUp_x                          0x1405C8960 // CXWnd::HandleLButtonUp
 #define CSidlScreenWnd__Init1_x                                    0x1405BEB40
 #define CSidlScreenWnd__LoadIniInfo_x                              0x1405BEEB0
 #define CSidlScreenWnd__LoadIniListWnd_x                           0x1405BF780
@@ -815,7 +815,7 @@
 #define CCastSpellWnd__RefreshSpellGemButtons_x                    0x1403A7FC0
 
 // messages
-#define msg_spell_worn_off_x                                       0x14021ED50
+#define msg_spell_worn_off_x                                       0x140496BE0
 #define msg_new_text_x                                             0x14021A520
 #define __msgTokenTextParam_x                                      0x1402118E0
 #define msgTokenText_x                                             0x1402117F0
