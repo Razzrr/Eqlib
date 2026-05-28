@@ -506,8 +506,8 @@
 #define CSidlManager__CreateXWnd_x                                 0x14050AE30
 
 // CSidlScreenWnd
-#define CSidlScreenWnd__CalculateHSBRange_x                        0x1405BD950
-#define CSidlScreenWnd__CalculateVSBRange_x                        0x1405BD820
+#define CSidlScreenWnd__CalculateHSBRange_x                        0x1405BD820
+#define CSidlScreenWnd__CalculateVSBRange_x                        0x1405BD950
 #define CSidlScreenWnd__ConvertToRes_x                             0x1406084B0 // LayoutTools::ConvertToRes
 #define CSidlScreenWnd__CreateChildrenFromSidl_x                   0x1405BDAC0
 #define CSidlScreenWnd__CSidlScreenWnd1_x                          0x1405BCF60
