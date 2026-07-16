@@ -312,7 +312,7 @@ public:
 // CButtonWnd
 //============================================================================
 
-constexpr size_t CButtonWnd_size = 0x348; // @sizeof(CButtonWnd) :: 2026-06-24 (live) @ 0x1405F8A59
+constexpr size_t CButtonWnd_size = 0x350; // @sizeof(CButtonWnd) :: 2026-07-09 (live) @ 0x140381805
 
 class [[offsetcomments]] CButtonWnd : public CXWnd
 {
@@ -372,30 +372,30 @@ public:
 	// data members
 /*0x268*/ int                   MouseButtonState;
 /*0x26c*/ bool                  bPicture;
-/*0x270*/ CRadioGroup*          pGroup;
-/*0x278*/ bool                  Checked;
-/*0x279*/ bool                  bMouseOverLastFrame;
-/*0x27c*/ CXPoint               DecalOffset;
-/*0x284*/ CXSize                DecalSize;
-/*0x28c*/ COLORREF              DecalTint;                // Color
-/*0x290*/ CXRect                TextOffsets;
-/*0x2a0*/ int                   TextModeBits;
-/*0x2a4*/ COLORREF              Mouseover;
-/*0x2a8*/ COLORREF              Pressed;
-/*0x2ac*/ COLORREF              Disabled;
-/*0x2b0*/ unsigned int          CoolDownBeginTime;
-/*0x2b4*/ unsigned int          CoolDownDuration;
-/*0x2b8*/ CXStr                 Indicator;
-/*0x2c0*/ unsigned int          IndicatorVal;
-/*0x2c8*/ CTextObjectInterface* pIndicatorTextObject;
-/*0x2d0*/ unsigned int          Unknown0x248;
-/*0x2d8*/ CButtonDrawTemplate   DrawTemplate;
-/*0x340*/ bool                  bAllowButtonClickThrough;
-/*0x341*/ bool                  bCoolDownDoDelayedStart;
-/*0x342*/ bool                  bIsCheckbox;
-/*0x343*/ bool                  bIsDrawLasso;
-/*0x344*/ uint32_t              ButtonStyle;              // tbd
-/*0x348*/
+/*0x270*/ eqstd::shared_ptr<CRadioGroup> pGroup;
+/*0x280*/ bool                  Checked;
+/*0x281*/ bool                  bMouseOverLastFrame;
+/*0x284*/ CXPoint               DecalOffset;
+/*0x28c*/ CXSize                DecalSize;
+/*0x294*/ COLORREF              DecalTint;                // Color
+/*0x298*/ CXRect                TextOffsets;
+/*0x2a8*/ int                   TextModeBits;
+/*0x2ac*/ COLORREF              Mouseover;
+/*0x2b0*/ COLORREF              Pressed;
+/*0x2b4*/ COLORREF              Disabled;
+/*0x2b8*/ unsigned int          CoolDownBeginTime;
+/*0x2bc*/ unsigned int          CoolDownDuration;
+/*0x2c0*/ CXStr                 Indicator;
+/*0x2c8*/ unsigned int          IndicatorVal;
+/*0x2d0*/ CTextObjectInterface* pIndicatorTextObject;
+/*0x2d8*/ unsigned int          Unknown0x248;
+/*0x2e0*/ CButtonDrawTemplate   DrawTemplate;
+/*0x348*/ bool                  bAllowButtonClickThrough;
+/*0x349*/ bool                  bCoolDownDoDelayedStart;
+/*0x34a*/ bool                  bIsCheckbox;
+/*0x34b*/ bool                  bIsDrawLasso;
+/*0x34c*/ uint32_t              ButtonStyle;              // tbd
+/*0x350*/
 
 	ALT_MEMBER_ALIAS(bool, Checked, bChecked);
 
@@ -1720,38 +1720,37 @@ enum eAdvLootStatus
 struct [[offsetcomments]] AdvancedLootItem
 {
 /*0x00*/ int64_t              ItemID;                   // EqGuid?
-/*0x08*/ uint8_t              Unknown0x08[0x8];
-/*0x10*/ char                 Name[0x40];
-/*0x50*/ int                  IconID;
-/*0x54*/ bool                 bStackable;
-/*0x58*/ int                  MaxStack;
-/*0x5c*/ bool                 NoDrop;
-/*0x60*/ int                  ComboID;
-/*0x64*/ unsigned int         LootID;
-/*0x68*/ eAdvLootState        State;
-/*0x6c*/ eAdvLootStatus       Status;
-/*0x70*/ bool                 bAutoRoll;
-/*0x71*/ bool                 ActivelyManaged;          // User has the manage Window up
-/*0x72*/ bool                 ContextMenu;              // item has a context menu
-/*0x73*/ bool                 AskRandomMode;            // item is in AskRandom mode
-/*0x74*/ bool                 CLootInProgress;
-/*0x75*/ bool                 PLootInProgress;
-/*0x78*/ SoeUtil::Array<AdvancedLootItemNPC> LootDetails;
-/*0x90*/ unsigned int         AskTimer;
-/*0x94*/ bool                 AutoRoll;
-/*0x95*/ bool                 FG;
-/*0x96*/ bool                 Need;
-/*0x97*/ bool                 Greed;
-/*0x98*/ bool                 No;
-/*0x99*/ bool                 AlwaysNeed;
-/*0x9a*/ bool                 AlwaysGreed;
-/*0x9b*/ bool                 Never;
-/*0xa0*/ uint64_t             Unk0;
-/*0xa8*/ uint64_t             Unk1;
-/*0xb0*/ uint8_t              Unknown0xb0[0x8];
-/*0xb8*/
+/*0x08*/ char                 Name[0x40];
+/*0x48*/ int                  IconID;
+/*0x4c*/ bool                 bStackable;
+/*0x50*/ int                  MaxStack;
+/*0x54*/ bool                 NoDrop;
+/*0x58*/ int                  ComboID;
+/*0x5c*/ unsigned int         LootID;
+/*0x60*/ eAdvLootState        State;
+/*0x64*/ eAdvLootStatus       Status;
+/*0x68*/ bool                 bAutoRoll;
+/*0x69*/ bool                 ActivelyManaged;          // User has the manage Window up
+/*0x6a*/ bool                 ContextMenu;              // item has a context menu
+/*0x6b*/ bool                 AskRandomMode;            // item is in AskRandom mode
+/*0x6c*/ bool                 CLootInProgress;
+/*0x6d*/ bool                 PLootInProgress;
+/*0x70*/ SoeUtil::Array<AdvancedLootItemNPC> LootDetails;
+/*0x88*/ unsigned int         AskTimer;
+/*0x8c*/ bool                 AutoRoll;
+/*0x8d*/ bool                 FG;
+/*0x8e*/ bool                 Need;
+/*0x8f*/ bool                 Greed;
+/*0x90*/ bool                 No;
+/*0x91*/ bool                 AlwaysNeed;
+/*0x92*/ bool                 AlwaysGreed;
+/*0x93*/ bool                 Never;
+/*0x98*/ uint64_t             Unk0;
+/*0xa0*/ uint64_t             Unk1;
+/*0xa8*/ uint8_t              Unknown0xa8[0x8];
+/*0xb0*/
 };
-SIZE_CHECK(AdvancedLootItem, 0xb8);
+SIZE_CHECK(AdvancedLootItem, 0xb0);
 
 inline namespace deprecated {
 	using LOOTITEM DEPRECATE("Use AdvancedLootItem instead of LOOTITEM") = AdvancedLootItem;
@@ -1853,11 +1852,12 @@ public:
 /*0x40c*/ bool                      bFirstTimeShowingCLL;
 /*0x410*/ int                       TotalLootCount;
 /*0x414*/ bool                      bAutoInventoryQuantity;
-/*0x418*/ int                       CLLActionMenu;
-/*0x41c*/ int                       CLLActionMenuQty;
-/*0x420*/ int                       PLLActionMenu;
-/*0x424*/ bool                      bUnknown3;
-/*0x428*/
+/*0x415*/ uint8_t                   Unknown0x418[0x10];
+/*0x428*/ int                       CLLActionMenu;
+/*0x42c*/ int                       CLLActionMenuQty;
+/*0x430*/ int                       PLLActionMenu;
+/*0x434*/ bool                      bUnknown3;
+/*0x438*/
 };
 
 //============================================================================
@@ -4648,7 +4648,7 @@ SIZE_CHECK(CInvSlotMgr, CInvSlotMgr_size);
 
 //----------------------------------------------------------------------------
 
-constexpr size_t CInvSlotWnd_size = 0x460; // @sizeof(CInvSlotWnd) :: 2026-06-24 (live) @ 0x14050D819
+constexpr size_t CInvSlotWnd_size = 0x468; // @sizeof(CInvSlotWnd) :: 2026-07-09 (live)
 
 class [[offsetcomments]] CInvSlotWnd : public CButtonWnd
 {
@@ -4695,28 +4695,28 @@ public:
 	/*0xa8*/
 	};
 
-/*0x348*/ InvSlotComponent   component;
-/*0x3f0*/ CTextureAnimation* pBackground;
-/*0x3f8*/ ItemGlobalIndex    ItemLocation;            // WindowType = ItemLocation.Location, InvSlot = ItemLocation.GetTopSlot()
-/*0x408*/ ItemPtr            LinkedItem;              // If the slot is linked to a specific item
-/*0x418*/ int                ItemOffsetX;
-/*0x41c*/ int                ItemOffsetY;
-/*0x420*/ CTextureAnimation* ptItem;
-/*0x428*/ int                Quantity;
-/*0x42c*/ bool               bSelected;
-/*0x42d*/ bool               bFindSelected;
-/*0x430*/ int                RecastLeft;
-/*0x434*/ bool               bHotButton;
-/*0x435*/ bool               bInventorySlotLinked;
-/*0x438*/ CInvSlot*          pInvSlot;
-/*0x440*/ CTextObjectInterface* pTextObject;
-/*0x448*/ int                TextFontStyle;
-/*0x44c*/ int                Mode;
-/*0x450*/ D3DCOLOR           BGTintRollover;
-/*0x454*/ D3DCOLOR           BGTintNormal;
-/*0x458*/ int                LastTime;
-/*0x45c*/ int                Unknown0x2cc;
-/*0x460*/
+/*0x350*/ InvSlotComponent   component;
+/*0x3f8*/ CTextureAnimation* pBackground;
+/*0x400*/ ItemGlobalIndex    ItemLocation;            // WindowType = ItemLocation.Location, InvSlot = ItemLocation.GetTopSlot()
+/*0x410*/ ItemPtr            LinkedItem;              // If the slot is linked to a specific item
+/*0x420*/ int                ItemOffsetX;
+/*0x424*/ int                ItemOffsetY;
+/*0x428*/ CTextureAnimation* ptItem;
+/*0x430*/ int                Quantity;
+/*0x434*/ bool               bSelected;
+/*0x435*/ bool               bFindSelected;
+/*0x438*/ int                RecastLeft;
+/*0x43c*/ bool               bHotButton;
+/*0x43d*/ bool               bInventorySlotLinked;
+/*0x440*/ CInvSlot*          pInvSlot;
+/*0x448*/ CTextObjectInterface* pTextObject;
+/*0x450*/ int                TextFontStyle;
+/*0x454*/ int                Mode;
+/*0x458*/ D3DCOLOR           BGTintRollover;
+/*0x45c*/ D3DCOLOR           BGTintNormal;
+/*0x460*/ int                LastTime;
+/*0x464*/ int                Unknown0x2cc;
+/*0x468*/
 
 	bool IsHotButton() const { return bHotButton; }
 
@@ -6265,7 +6265,7 @@ SIZE_CHECK(CSpellDisplayWnd, CSpellDisplayWnd_size);
 // CSpellGemWnd
 //============================================================================
 
-// CSpellGemWnd_size: 0x3f8
+// CSpellGemWnd_size: 0x400
 class [[offsetcomments]] CSpellGemWnd : public CButtonWnd
 {
 	FORCE_SYMBOLS
@@ -6281,24 +6281,24 @@ public:
 	//----------------------------------------------------------------------------
 	// data members
 
-/*0x348*/ int                MouseButtonState;
-/*0x34c*/ bool               bChecked;
-/*0x350*/ unsigned int       LastRefresh;
-/*0x354*/ D3DCOLOR           SpellGemTintArray[11];
-/*0x380*/ int                SpellGemAlphaArray[11];
-/*0x3ac*/ int                SpellIconOffsetX;
-/*0x3b0*/ int                SpellIconOffsetY;
-/*0x3b4*/ int                SpellIconWidth;
-/*0x3b8*/ int                SpellIconHeight;
-/*0x3bc*/ int                SpellIconIndex;           // if this is equal to -1 there is no spell memmed in this slot
-/*0x3c0*/ int                spellstate;               // 1 = cast in progress or refreshtime not met 2 means we ducked or aborted cast, 0 means its ok to cast, should really rename this to tintstage
-/*0x3c4*/ int                TintIndex;
-/*0x3c8*/ CTextureAnimation* SpellIconTexture;         // CTextureAnimation
-/*0x3d0*/ CTextureAnimation* CustomIconTexture;        // CTextureAnimation
-/*0x3d8*/ int                SpellSlot;
-/*0x3dc*/ int                Percent;
-/*0x3e0*/ CSpellGemDrawTemplate DrawTemplate;
-/*0x400*/
+/*0x350*/ int                MouseButtonState;
+/*0x354*/ bool               bChecked;
+/*0x358*/ unsigned int       LastRefresh;
+/*0x35c*/ D3DCOLOR           SpellGemTintArray[11];
+/*0x388*/ int                SpellGemAlphaArray[11];
+/*0x3b4*/ int                SpellIconOffsetX;
+/*0x3b8*/ int                SpellIconOffsetY;
+/*0x3bc*/ int                SpellIconWidth;
+/*0x3c0*/ int                SpellIconHeight;
+/*0x3c4*/ int                SpellIconIndex;           // if this is equal to -1 there is no spell memmed in this slot
+/*0x3c8*/ int                spellstate;               // 1 = cast in progress or refreshtime not met 2 means we ducked or aborted cast, 0 means its ok to cast, should really rename this to tintstage
+/*0x3cc*/ int                TintIndex;
+/*0x3d0*/ CTextureAnimation* SpellIconTexture;         // CTextureAnimation
+/*0x3d8*/ CTextureAnimation* CustomIconTexture;        // CTextureAnimation
+/*0x3e0*/ int                SpellSlot;
+/*0x3e4*/ int                Percent;
+/*0x3e8*/ CSpellGemDrawTemplate DrawTemplate;
+/*0x408*/
 
 	ALT_MEMBER_GETTER(int, SpellIconIndex, spellicon);
 };
