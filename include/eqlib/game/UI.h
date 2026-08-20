@@ -3429,12 +3429,14 @@ public:
 	//----------------------------------------------------------------------------
 	// data members
 
-/*0x2cc*/ bool             Unknown0x22c;
-/*0x2d0*/ int              Unknown0x230;
-/*0x2d4*/ int              Unknown0x234;
-/*0x2d8*/ int              Unknown0x238;
-/*0x2e0*/ SoeUtil::String  Unknown0x23c;
-/*0x2f8*/ SoeUtil::String  Unknown0x24c;
+/*0x2cc*/ bool             bNeedsRefresh;
+/*0x2cd*/ bool             bListDirty;
+/*0x2ce*/ bool             bSearchPending;
+/*0x2d0*/ uint32_t         LastUpdateTime;
+/*0x2d4*/ int              SelectedCategory;
+/*0x2d8*/ int              SelectedFaction;
+/*0x2e0*/ SoeUtil::String  Unknown0x2e0;
+/*0x2f8*/ SoeUtil::String  Unknown0x2f8;
 /*0x310*/ CGaugeWnd*       StandingGaugeTemplate;
 /*0x318*/ CTreeViewWnd*    Categories;
 /*0x320*/ CEditWnd*        SearchNameInput;
