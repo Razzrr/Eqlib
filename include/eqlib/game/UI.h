@@ -288,25 +288,29 @@ public:
 // CRadioGroup
 //============================================================================
 
-class [[offsetcomments]] CRadioGroup
+constexpr size_t CRadioGroup_size = 0x40;
+
+class [[offsetcomments]] CRadioGroup : public eqstd::enable_shared_from_this<CRadioGroup>
 {
 public:
 	EQLIB_OBJECT CRadioGroup(CXStr name = {});
-	EQLIB_OBJECT virtual ~CRadioGroup();
+	EQLIB_OBJECT ~CRadioGroup();
 
 	CButtonWnd* GetButton(int index) const
 	{
-		return index >= 0 && index < Buttons.GetLength() ? Buttons[index].get() : nullptr;
+		return index >= 0 && index < Buttons.GetLength() ? Buttons[index] : nullptr;
 	}
 
-/*0x08*/ CXStr                    Name;
-/*0x10*/ ArrayClass<eqstd::shared_ptr<CButtonWnd>> Buttons;
-/*0x28*/ int                      CurSel = -1;
-/*0x2c*/ bool                     bAllowMultiSelect = false;
-/*0x30*/ int                      nSelectionLimit = -1;
-/*0x34*/ bool                     bAllowNullable = false;
-/*0x38*/
+/*0x10*/ CXStr                    Name;
+/*0x18*/ ArrayClass<CButtonWnd*>  Buttons;
+/*0x30*/ int                      CurSel = -1;
+/*0x34*/ bool                     bAllowMultiSelect = false;
+/*0x38*/ int                      nSelectionLimit = -1;
+/*0x3c*/ bool                     bAllowNullable = false;
+/*0x40*/
 };
+
+SIZE_CHECK(CRadioGroup, CRadioGroup_size);
 
 //============================================================================
 // CButtonWnd

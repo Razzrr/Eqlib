@@ -21,6 +21,7 @@
 #include "eqlib/game/CXStr.h"
 #include "eqlib/game/UIHelpers.h"
 #include "eqlib/game/UITemplates.h"
+#include "eqstd/memory.h"
 #include "eqlib/game/UITextures.h"
 #include "eqlib/game/UITypes.h"
 #include "eqlib/game/XMLData.h"
@@ -913,7 +914,7 @@ public:
 /*0x260*/ bool                         bControlsCreated;
 /*0x268*/ CXStr                        SidlText;
 /*0x270*/ CScreenTemplate*             SidlPiece;
-/*0x278*/ ArrayClass<CRadioGroup*>     RadioGroup;
+/*0x278*/ ArrayClass<eqstd::shared_ptr<CRadioGroup>> RadioGroup;
 /*0x290*/ bool                         bInitVisibility;
 /*0x291*/ bool                         bVisibleBeforeResize;
 /*0x294*/ int                          IniFlags;
