@@ -288,19 +288,18 @@ public:
 // CRadioGroup
 //============================================================================
 
-constexpr size_t CRadioGroup_size = 0x40;
-
-class [[offsetcomments]] CRadioGroup : public eqstd::enable_shared_from_this<CRadioGroup>
+class [[offsetcomments]] CRadioGroup
 {
 public:
 	EQLIB_OBJECT CRadioGroup(CXStr name = {});
-	EQLIB_OBJECT ~CRadioGroup();
+	EQLIB_OBJECT virtual ~CRadioGroup();
 
 	CButtonWnd* GetButton(int index) const
 	{
 		return index >= 0 && index < Buttons.GetLength() ? Buttons[index] : nullptr;
 	}
 
+/*0x08*/ uint64_t                 Unknown;
 /*0x10*/ CXStr                    Name;
 /*0x18*/ ArrayClass<CButtonWnd*>  Buttons;
 /*0x30*/ int                      CurSel = -1;
@@ -309,8 +308,6 @@ public:
 /*0x3c*/ bool                     bAllowNullable = false;
 /*0x40*/
 };
-
-SIZE_CHECK(CRadioGroup, CRadioGroup_size);
 
 //============================================================================
 // CButtonWnd
@@ -1760,10 +1757,11 @@ struct [[offsetcomments]] AdvancedLootItem
 /*0x93*/ bool                 Never;
 /*0x98*/ uint64_t             Unk0;
 /*0xa0*/ uint64_t             Unk1;
-/*0xa8*/ uint8_t              Unknown0xa8[0x8];
+/*0xa8*/ uint64_t             Unk2;
 /*0xb0*/
 };
-SIZE_CHECK(AdvancedLootItem, 0xb0);
+
+SIZE_CHECK(AdvancedLootItem, AdvancedLootItem_size);
 
 inline namespace deprecated {
 	using LOOTITEM DEPRECATE("Use AdvancedLootItem instead of LOOTITEM") = AdvancedLootItem;
@@ -6278,7 +6276,7 @@ SIZE_CHECK(CSpellDisplayWnd, CSpellDisplayWnd_size);
 // CSpellGemWnd
 //============================================================================
 
-// CSpellGemWnd_size: 0x400
+// CSpellGemWnd_size: 0x3f8
 class [[offsetcomments]] CSpellGemWnd : public CButtonWnd
 {
 	FORCE_SYMBOLS

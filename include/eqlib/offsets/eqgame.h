@@ -362,6 +362,7 @@
 #define CEverQuest__RightClickedOnPlayer_x                         0x14029F3D0
 #define CEverQuest__RMouseUp_x                                     0x140298A80
 #define CEverQuest__SetGameState_x                                 0x1402A4B70
+#define CEverQuest__StartCasting_x                                 0x1402A5F10
 #define CEverQuest__UPCNotificationFlush_x                         0x1402AA570 // CEverQuest__UniversalChatProxyNotificationFlush
 #define CEverQuest__IssuePetCommand_x                              0x14028DC70
 #define CEverQuest__ReportSuccessfulHeal_x                         0x140299E70

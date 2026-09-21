@@ -785,7 +785,7 @@ SIZE_CHECK2(CXWnd_vftable, CXWnd::VirtualFunctionTable, CXWnd_vftable_size);
 class CStmlWnd : public CXWnd
 {
 public:
-/*0x260*/ CXStr              STMLText;
+/*0x248*/ CXStr              STMLText;
 };
 
 class [[offsetcomments]] CEditBaseWnd : public CXWnd

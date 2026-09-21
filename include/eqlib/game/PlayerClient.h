@@ -261,7 +261,7 @@ struct [[offsetcomments]] LaunchSpellData
 
 	// Changed 2022-10-12, the following are missing or removed:
 	// SpellLevel, DamageID, bDetrimental, bResetAAOnNotTakeHold, bLanded, bNPCTarget, bHasHitRecourse,
-
+	// AnchorPosY, AnchorPosX, AnchorPosZ, bIgnoreRange, bResetAAOnNotTakeHoldSuccess, Unknown0x54
 
 	bool IsCasting() const
 	{
@@ -489,7 +489,8 @@ private:
 class [[offsetcomments]] PlayerZoneClient : public PlayerBase
 {
 public:
-/*0x01c8*/ unsigned int      LastIntimidateUse;
+/*0x01c8*/ unsigned int             LastIntimidateUse;
+
 // @start: PlayerZoneClient Members
 /*0x01cc*/ unsigned int             LastTick;
 /*0x01d0*/ unsigned int             EnduranceMax;
